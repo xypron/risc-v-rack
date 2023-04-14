@@ -202,7 +202,7 @@ module case() {
                 }
 
                 translate([52, -6.5, 62.5])
-                    rotate([90, 90, 0])
+                    rotate([90, 270, 0])
                         cof_add(1.5);
 
                 /* Front lower beam */
@@ -248,7 +248,7 @@ module case() {
                 translate([0, 132, 0])
                     screwholes();
                 translate([52, -6.5, 62.5])
-                    rotate([90, 90, 0])
+                    rotate([90, 270, 0])
                         cof_sub(1.5);
                 translate([113, 18, 124.5])
                     rotate([90, 0, 0])
