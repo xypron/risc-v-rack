@@ -276,7 +276,6 @@ module rack() {
                 vstrut(80);
                 translate([-2, 75, -2])
                     cube([2, 18, 122]);
-                vstrut(92);
                 vstrut(132);
                 vstrut(172);
 
@@ -364,5 +363,6 @@ rack();
 */
 
 rotate([180, 0, 0]){
-    cover();
+    //cover();
 }
+rack();
