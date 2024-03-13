@@ -69,12 +69,6 @@ module board_holder() {
                 translate([84, 0, -14])
                     cube ([2, 100.2, 11.5]);
 
-                translate([84, 60, -14])
-                    cube ([2, 40.2, 20]);
-
-                translate([80, 98.2, -14])
-                    cube ([5, 2, 20]);
-
                 translate([-2.5, -10, -14]) {
                     cube ([2, 122.2, 36]);
                 }
