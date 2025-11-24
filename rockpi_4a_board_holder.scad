@@ -44,8 +44,8 @@ module board_holder() {
                     union() {
                         translate([-2.5, 0, 20])
                             cube ([91.5, 100.2, 2]);
-                        translate([34.2, -10, 20])
-                            cube ([40, 100.2, 2]);
+                        translate([34.2, -10, -14])
+                            cube ([40, 12, 2]);
                     }
                     union() {
                         if (dy > 15) {
@@ -64,8 +64,8 @@ module board_holder() {
                 translate([22.5, 0, 11.5 - dz])
                     cube ([2, 100.2, 6 - dz]);
 
-                translate([-2.5, 0, 6.5 - dz]) {
-                    cube ([91.5, 2, 11.5 - dz]);
+                translate([-2.5, 0, -14]) {
+                    cube ([92.5, 2, 36]);
                 }
 
                 translate([-2.5, 98.2, 6.5 - dz])
@@ -138,6 +138,8 @@ module board_holder() {
                     cube ([10, 15, 17], center = true);
                 translate([0, 56 - 47 + dy, 9.5 - dz])
                     cube ([10, 15, 17], center = true);
+                translate([52, 99.2, 6.5 - dz])
+                    cube ([40, 16, 10], center = true);
             }
         }
     }
@@ -145,5 +147,5 @@ module board_holder() {
 
 // board();
 
-rotate([0, 180, 0])
+//rotate([0, 180, 0])
     board_holder();
