@@ -27,10 +27,10 @@ module board() {
             cube ([17.3, 13, 14], center = true);
         
         // Ethernet right
-        translate([4.5, 12.85, 23.75])
+        translate([4.5, 16.3, 23.75])
             cube ([15, 17.2, 11.1], center = true);
         // Ethernet left
-        translate([4.5, 56 - 12.85, 23.75])
+        translate([4.5, 56 - 16.3, 23.75])
             cube ([15, 17.2, 11.1], center = true);
         
     }
@@ -170,18 +170,18 @@ module board_holder() {
                     cube ([30, 15, 16], center = true);
                 
                 // Ethernet right
-                translate([4.5, 57.05, 13.25])
+                translate([4.5, 60.5, 13.25])
                     cube ([15, 19.2, 12.1], center = true);
                 // Ethernet left
-                translate([4.5, 100.2 - 12.85, 13.25])
+                translate([4.5, 100.2 - 16.3, 13.25])
                     cube ([15, 19.2, 12.1], center = true);
                     
                 // SD-card
                 translate([85.5, 72.2, -13]) {
-                    cube ([50, 15, 2.5], center = true);
+                    cube ([50, 15, 3], center = true);
                 }
                 // Power button
-                translate([86.5, 85.5, -10.75]) {
+                translate([86.5, 81.5, -8.75]) {
                     rotate([0, 90, 0]) {
                         cylinder(h = 20, r = 1.75, center = true);
                     }
@@ -218,7 +218,7 @@ module crossbar() {
 }
 
 translate ([0, 44.2, -12]) {
-   //board();
+   board();
 }
 //debug_probe();
 crossbar();
