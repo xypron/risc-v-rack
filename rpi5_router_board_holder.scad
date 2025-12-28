@@ -50,7 +50,10 @@ module board_holder() {
                 difference() {
                     union() {
                         translate([-2.5, 0, -14]) {
-                            cube ([100, 110.2, 2]);
+                            cube ([89.5, 102.7, 2]);
+                        }
+                        translate([-2.5, 0, -14]) {
+                            cube ([40, 110.7, 2]);
                         }
                         translate([34.2, -10, -14]) {
                             cube ([40, 100.2, 2]);
@@ -69,15 +72,24 @@ module board_holder() {
                             cube ([51, 56, 4]);
                     }
                 }
-
+                
                 translate([22.5, 0, -14])
                     cube ([2, 43.7, 11.5]);
 
                 translate([-2.5, 0, -14])
-                    cube ([87.5, 2, 11.5]);
+                    cube ([89.5, 2, 11.5]);
+
+                translate([-2.5, 41.7, -14]) {
+                    cube ([89.5, 2, 11.5]);
+                }
+
+                translate([-2.5, 100.7, -14]) {
+                    cube ([40, 2, 11.5]);
+                    cube ([89.5, 2, 3.5]);
+                }
 
                 translate([85.5, 0, -14]) {
-                    cube ([2, 43.7, 11.5]);
+                    cube ([2, 102.7, 11.5]);
                 }
 
                 translate([-2.5, -10, -14]) {
@@ -163,6 +175,17 @@ module board_holder() {
                 // Ethernet left
                 translate([4.5, 100.2 - 12.85, 13.25])
                     cube ([15, 19.2, 12.1], center = true);
+                    
+                // SD-card
+                translate([85.5, 72.2, -13]) {
+                    cube ([50, 15, 2.5], center = true);
+                }
+                // Power button
+                translate([86.5, 85.5, -10.75]) {
+                    rotate([0, 90, 0]) {
+                        cylinder(h = 20, r = 1.75, center = true);
+                    }
+                }
             }
         }
     }
