@@ -1,4 +1,11 @@
+// SPDX-License-Identifier: CC-BY-SA-4.0
+
+// Number of fragments to draw an arc
 $fn = 100;
+
+// Add support to upper beam to reduce bridge length
+// when printing without support.
+bridging = true;
 
 module cof_add(f) {
         difference() {
@@ -195,12 +202,40 @@ module holder() {
     }
 }
 
+module bridgesupport(dy) {
+    if (bridging) {
+        translate([- 11.3, dy - 3, 120])
+        polyhedron (
+            points = [
+                [ 0.0, 0,   0],
+                [10.8, 0,   0],
+                [10.8, 0, -14.8],
+                [ 9.8, 0, -14.8],
+                [ 0.0, 0,  -5],
+                [ 0.0, 2,   0],
+                [10.8, 2,   0],
+                [10.8, 2, -14.8],
+                [ 9.8, 2, -14.8],
+                [ 0.0, 2,  -5]
+            ],
+            faces = [
+                [0, 1, 2, 3 , 4],
+                [5, 6, 1, 0],
+                [6, 7, 2, 1],
+                [7, 8, 3, 2],
+                [8, 9, 4, 3],
+                [9, 5, 0, 4],
+                [9, 8, 7, 6, 5],
+            ]
+        );
+    }
+}
+
 module vstrut(dy) {
+    bridgesupport(dy);
     translate([0, dy, 0]) {
         translate([-2.5, -5, -2])
             cube([2, 6, 122]);
-        //translate([-11.3, -3, -2])
-            //cube([19.3, 2, 122]);
         translate([-2.5, -3, -2])
             cube([10.1, 2, 122]);
         multmatrix([
@@ -255,8 +290,8 @@ module rack() {
                     cube([2.5, 178, 12]);
 
                 /* Front upper beam */
-                translate([-11.43, -8.5, 116])
-                    cube([10.93, 185, 4]);
+                translate([-11.3, -8.5, 116])
+                    cube([10.8, 185, 4]);
 
                 /* Beams for card holders */
                 translate([-2.5, -2.5, -2])
@@ -277,7 +312,7 @@ module rack() {
                 vstrut(80);
                 translate([-2.5, 75, -2])
                     cube([2, 18, 122]);
-                //vstrut(92);
+                bridgesupport(92);
                 vstrut(132);
                 vstrut(172);
 
@@ -409,9 +444,8 @@ rack();
     //cover();
 //}
 difference() {
-rack();
+    rack();
 translate([-20,-20,50]) {
     //cube([200,200,200]);
     }
 }
-
