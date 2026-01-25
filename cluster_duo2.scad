@@ -227,6 +227,8 @@ module vstrut(dy) {
     translate([0, dy, 0]) {
         translate([-2.5, -5, -2])
             cube([2, 6, 122]);
+        translate([-2.5, -3, -2])
+            cube([10.1, 2, 122]);
         multmatrix([
                     [1, 0, -.7, -2 + 122 * .7],
                     [0, 1, 0, -3],
