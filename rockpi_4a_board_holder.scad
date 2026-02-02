@@ -43,8 +43,8 @@ module board_holder() {
                 difference() {
                     union() {
                         translate([-2.5, 0, 20])
-                            cube ([91.5, 100.2, 2]);
-                        translate([34.2, -10, -14])
+                            cube ([109.5, 100.2, 2]);
+                        translate([34.2, -10, 20])
                             cube ([40, 12, 2]);
                     }
                     union() {
@@ -58,20 +58,24 @@ module board_holder() {
                             translate([7.5, 56 + dy, 19])
                                 cube ([70, 36 - dy, 4]);
                         }
+                        translate([107.5, dy, 19])
+                            cube ([144, 149, 4]);
+                        translate([87, 7 + dy, 19])
+                            cube ([14, 42, 4]);
                     }
                 }
 
                 translate([22.5, 0, 11.5 - dz])
                     cube ([2, 100.2, 6 - dz]);
 
-                translate([-2.5, 0, -14]) {
-                    cube ([92.5, 2, 36]);
+                translate([-2.5, 0, 6.5 - dz]) {
+                    cube ([110.5, 2, 11.5 - dz]);
                 }
 
                 translate([-2.5, 98.2, 6.5 - dz])
-                    cube ([91.5, 2, 11.5 - dz]);
+                    cube ([110.5, 2, 11.5 - dz]);
 
-                translate([88, 0, 6.5 - dz])
+                translate([106, 0, 6.5 - dz])
                     cube ([2, 100.2, 11.5 - dz]);
 
                 translate([-2.5, -10, -14])
@@ -81,8 +85,9 @@ module board_holder() {
                     cube ([21.43, 2, 36]);
                 }
 
-                translate([-2.5, 0, 20])
+                translate([-2.5, 0, 20]) {
                     cube ([10, 112.2, 2]);
+                }
 
                 translate([5.5, 98.2, 6.5 - dz])
                     cube ([2, 14, 11.5 - dz]);
@@ -95,6 +100,10 @@ module board_holder() {
                     cube([8, 8, 16.5 - dz], center = true);
                 translate([83, 54 + dy, 13.75 + dz / 2])
                     cube([8, 8, 16.5 - dz], center = true);
+                // NVMe screw
+                translate([104, 32.5 + dy, 11.6 + dz / 2])
+                    cylinder(h = 20.8 - dz, r = 3, center = true);
+
             }
             union() {
 
@@ -129,6 +138,10 @@ module board_holder() {
                     cylinder(h = 38, r = 1.75, center = true);
                 translate([81.5, 52.5 + dy, 4])
                     cylinder(h = 38, r = 1.75, center = true);
+
+                // NVMe screw
+                translate([104, 32.5 + dy, 11.6 + dz / 2])
+                    cylinder(h = 38, r = 1.05, center = true);
 
                 // Ethernet
                 translate([0, 56 - 10.25 + dy, 8 - dz])
