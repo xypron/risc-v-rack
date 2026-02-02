@@ -66,7 +66,7 @@ module board_holder() {
                 }
 
                 translate([22.5, 0, 11.5 - dz])
-                    cube ([2, 100.2, 6 - dz]);
+                    cube ([2, 100.2, 6.5 - dz]);
 
                 translate([-2.5, 0, 6.5 - dz]) {
                     cube ([110.5, 2, 11.5 - dz]);
@@ -96,10 +96,20 @@ module board_holder() {
                     cube([6, 8, 16.5 - dz], center = true);
                 translate([23.5, 54 + dy, 13.75 + dz / 2])
                     cube([6, 8, 16.5 - dz], center = true);
+                // Bridge for build only
+                translate([23.5, 28 + dy, 6.25 + dz / 2]) {
+                    cube([6, 60, .5], center = true);
+                }
+
+
                 translate([83, 2 + dy, 13.75 + dz / 2])
                     cube([8, 8, 16.5 - dz], center = true);
                 translate([83, 54 + dy, 13.75 + dz / 2])
                     cube([8, 8, 16.5 - dz], center = true);
+                // Bridge for build only
+                translate([83, 28 + dy, 6.25 + dz / 2]) {
+                    cube([8, 60, .5], center = true);
+                }
                 // NVMe screw
                 translate([104, 32.5 + dy, 11.6 + dz / 2])
                     cylinder(h = 20.8 - dz, r = 3, center = true);
