@@ -35,6 +35,32 @@ module board() {
     }
 }
 
+module support(h, w) {
+    polyhedron(
+        points = [
+            [-.5 * w, 1, 1 - h],
+            [0, 1, w + 1 - h],
+            [.5 * w, 1, 1 - h],
+            [-.5 * w, -1, 1 - h],
+            [0, -1, w + 1 - h],
+            [.5 * w, -1, 1 - h]
+        ],
+        faces = [
+            [2, 1, 0],
+            [3, 4, 5],
+            [2, 0, 3, 5],
+            [0, 1, 4, 3],
+            [1, 2, 5, 4]
+        ]
+    );
+    translate([0, 0, .5 - h]) {
+        cube([w, 2, 1], center = true);
+    }
+    translate([0, 0, -.5 * h]) {
+        cube([2, 2, h], center = true);
+    }
+}
+
 
 module board_holder() {
     color(c = [.3, .3, .3, 1]) {
@@ -100,6 +126,10 @@ module board_holder() {
                 translate([23.5, 28 + dy, 6.25 + dz / 2]) {
                     cube([6, 60, .5], center = true);
                 }
+                // Bridge support
+                translate([23.5, 28 + dy, 22.0]) {
+                    support(15.5 - dz / 2, 6);
+                }
 
 
                 translate([83, 2 + dy, 13.75 + dz / 2])
@@ -109,6 +139,10 @@ module board_holder() {
                 // Bridge for build only
                 translate([83, 28 + dy, 6.25 + dz / 2]) {
                     cube([8, 60, .5], center = true);
+                }
+                // Bridge support
+                translate([83, 28 + dy, 22.0]) {
+                    support(15.5 - dz / 2, 8);
                 }
                 // NVMe screw
                 translate([104, 32.5 + dy, 11.6 + dz / 2])
@@ -171,4 +205,6 @@ module board_holder() {
 // board();
 
 //rotate([0, 180, 0])
+{
     board_holder();
+}
