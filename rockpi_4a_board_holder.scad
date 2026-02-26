@@ -122,28 +122,11 @@ module board_holder() {
                     cube([6, 8, 16.5 - dz], center = true);
                 translate([23.5, 54 + dy, 13.75 + dz / 2])
                     cube([6, 8, 16.5 - dz], center = true);
-                // Bridge for build only
-                translate([23.5, 28 + dy, 6.25 + dz / 2]) {
-                    cube([6, 60, .5], center = true);
-                }
-                // Bridge support
-                translate([23.5, 28 + dy, 22.0]) {
-                    support(15.5 - dz / 2, 6);
-                }
-
 
                 translate([83, 2 + dy, 13.75 + dz / 2])
                     cube([8, 8, 16.5 - dz], center = true);
                 translate([83, 54 + dy, 13.75 + dz / 2])
                     cube([8, 8, 16.5 - dz], center = true);
-                // Bridge for build only
-                translate([83, 28 + dy, 6.25 + dz / 2]) {
-                    cube([8, 60, .5], center = true);
-                }
-                // Bridge support
-                translate([83, 28 + dy, 22.0]) {
-                    support(15.5 - dz / 2, 8);
-                }
                 // NVMe screw
                 translate([104, 32.5 + dy, 11.6 + dz / 2])
                     cylinder(h = 20.8 - dz, r = 3, center = true);
@@ -199,12 +182,28 @@ module board_holder() {
                     cube ([40, 16, 10], center = true);
             }
         }
+        // Bridge for build only
+        translate([23.5, 28 + dy, 6.25 + dz / 2]) {
+            cube([6, 60, .5], center = true);
+        }
+        // Bridge support
+        translate([23.5, 28 + dy, 22.0]) {
+            support(15.5 - dz / 2, 6);
+        }
+        // Bridge for build only
+        translate([83, 28 + dy, 6.25 + dz / 2]) {
+            cube([8, 60, .5], center = true);
+        }
+        // Bridge support
+        translate([83, 28 + dy, 22.0]) {
+            support(15.5 - dz / 2, 8);
+        }
     }
 }
 
 // board();
 
-//rotate([0, 180, 0])
+rotate([0, 180, 0])
 {
     board_holder();
 }
